@@ -1,1 +1,1 @@
-Demo of code practice
+Project of code practice
