@@ -1,4 +1,4 @@
-package com.code.sort;
+package com.code.basic.sort;
 
 /**
  * 快速排序
