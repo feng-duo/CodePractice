@@ -1,9 +1,7 @@
-package com.code.rocketmq;
+package com.code.mq.rocketmq;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.rocketmq.client.consumer.AllocateMessageQueueStrategy;
 import org.apache.rocketmq.client.consumer.rebalance.AllocateMessageQueueAveragely;
-import org.apache.rocketmq.common.MixAll;
 import org.apache.rocketmq.common.message.MessageQueue;
 
 import java.util.ArrayList;
