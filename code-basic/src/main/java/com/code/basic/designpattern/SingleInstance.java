@@ -1,4 +1,4 @@
-package com.code.designpattern;
+package com.code.basic.designpattern;
 
 /**
  * 单例模式

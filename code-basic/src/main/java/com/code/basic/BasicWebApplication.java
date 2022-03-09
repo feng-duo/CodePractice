@@ -1,13 +1,13 @@
-package com.code;
+package com.code.basic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CodeApplication {
+public class BasicWebApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CodeApplication.class, args);
+        SpringApplication.run(BasicWebApplication.class, args);
     }
 
 }
