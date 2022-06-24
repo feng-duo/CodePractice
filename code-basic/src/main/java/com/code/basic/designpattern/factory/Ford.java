@@ -1,4 +1,4 @@
-package com.code.basic.designpattern.simplefactory;
+package com.code.basic.designpattern.factory;
 
 /**
  * @author FengDuo
