@@ -22,7 +22,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot-version>2.5.7</spring-boot-version>
+        <spring-boot-version>2.5.12</spring-boot-version>
 
         <!-- 3rd -->
         <easyexcel.version>3.0.5</easyexcel.version>
