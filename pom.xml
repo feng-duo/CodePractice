@@ -29,11 +29,13 @@
         <rocketmq.version>4.9.1</rocketmq.version>
         <junit.version>4.13.2</junit.version>
         <lombok.version>1.18.22</lombok.version>
+        <canal.version>1.1.0</canal.version>
     </properties>
 
     <modules>
         <module>code-basic</module>
         <module>code-rocketmq</module>
+        <module>canal</module>
     </modules>
 
     <dependencyManagement>
@@ -73,6 +75,11 @@
                 <groupId>org.apache.rocketmq</groupId>
                 <artifactId>rocketmq-client</artifactId>
                 <version>${rocketmq.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.otter</groupId>
+                <artifactId>canal.client</artifactId>
+                <version>${canal.version}</version>
             </dependency>
         </dependencies>
 
