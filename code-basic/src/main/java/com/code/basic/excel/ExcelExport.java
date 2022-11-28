@@ -3,6 +3,9 @@ package com.code.basic.excel;
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.annotation.ExcelIgnore;
 import com.alibaba.excel.annotation.ExcelProperty;
+import com.alibaba.excel.annotation.write.style.ContentFontStyle;
+import com.alibaba.excel.annotation.write.style.ContentStyle;
+import com.alibaba.excel.enums.BooleanEnum;
 import com.alibaba.excel.util.ListUtils;
 import lombok.Data;
 
@@ -63,7 +66,7 @@ public class ExcelExport {
         List<DemoData> list = ListUtils.newArrayList();
         for (int i = 0; i < 10; i++) {
             DemoData data = new DemoData();
-            data.setString("字符串" + i);
+            data.setString("字符串\r\n666");
             data.setDate(new Date());
             data.setDoubleData(0.56);
             list.add(data);
@@ -75,6 +78,7 @@ public class ExcelExport {
     @Data
     private static class DemoData {
         @ExcelProperty("字符串标题")
+        @ContentStyle(wrapped = BooleanEnum.TRUE)
         private String string;
         @ExcelProperty("日期标题")
         private Date date;
