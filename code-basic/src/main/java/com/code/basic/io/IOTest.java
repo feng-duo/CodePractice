@@ -9,12 +9,12 @@ import java.io.*;
 public class IOTest {
 
     public static void main(String[] args) {
-        InputStream inputStream = IOTest.class.getResourceAsStream("/com/code/basic/io/etc/abc.txt");
+        InputStream inputStream = IOTest.class.getResourceAsStream("etc/abc.txt");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
         LineNumberReader lineNumberReader = new LineNumberReader(bufferedReader);
         try {
-            while (lineNumberReader.read() > 0) {
+            while (lineNumberReader.read() != -1) {
                 System.out.println(lineNumberReader.readLine());
             }
         } catch (IOException e) {
