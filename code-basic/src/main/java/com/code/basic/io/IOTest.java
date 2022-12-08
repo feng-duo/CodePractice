@@ -26,7 +26,7 @@ public class IOTest {
     }
 
     @Test
-    public void test(){
+    public void fileTest() {
         File file = new File("src/main/java/com/code/basic/io/etc/abc.txt");
         System.out.println("文件是否存在：" + file.exists());
         System.out.println("文件绝对路径：" + file.getAbsolutePath());
@@ -40,7 +40,6 @@ public class IOTest {
         System.out.println("文件路径：" + file.getPath());
         System.out.println("文件名：" + file.getName());
         System.out.println("文件上一级目录：" + file.getParent());
-
     }
 
 }
