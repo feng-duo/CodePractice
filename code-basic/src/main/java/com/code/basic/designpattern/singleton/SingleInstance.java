@@ -7,7 +7,7 @@ package com.code.basic.designpattern.singleton;
  * @date 2021/12/08 23:13
  */
 public class SingleInstance {
-    private static SingleInstance instance = new SingleInstance();
+    private static final SingleInstance instance = new SingleInstance();
 
     private SingleInstance() {
     }
@@ -27,7 +27,7 @@ class LHan {
     private LHan() {
     }
 
-    public static LHan getInstance() {
+    public static synchronized LHan getInstance() {
         if (lHan == null) {
             lHan = new LHan();
         }
@@ -61,15 +61,14 @@ class DoubleCheck {
  */
 class Singleton {
     private static class SingletonHolder {
-        private static Singleton SINGLETON = new Singleton();
+        private static final Singleton SINGLETON = new Singleton();
     }
 
     private Singleton() {
     }
 
-    ;
 
-    public static final Singleton getInstance() {
+    public static Singleton getInstance() {
         return SingletonHolder.SINGLETON;
     }
 }
@@ -80,7 +79,7 @@ class Singleton {
 enum SingletonEnum {
     INSTANCE;
 
-    public void getInstace() {
+    public void getInstance() {
 
     }
 }
