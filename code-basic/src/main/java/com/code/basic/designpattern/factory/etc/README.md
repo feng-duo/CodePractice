@@ -115,19 +115,12 @@ This is Ferrari.
 
 * 会使代码变得比原来的更加复杂一些。
 
-## 现实案例
 
-* [java.util.Calendar#getInstance()](https://docs.oracle.com/javase/8/docs/api/java/util/Calendar.html#getInstance--)
-* [java.util.ResourceBundle#getBundle()](https://docs.oracle.com/javase/8/docs/api/java/util/ResourceBundle.html#getBundle-java.lang.String-)
-* [java.text.NumberFormat#getInstance()](https://docs.oracle.com/javase/8/docs/api/java/text/NumberFormat.html#getInstance--)
-* [java.nio.charset.Charset#forName()](https://docs.oracle.com/javase/8/docs/api/java/nio/charset/Charset.html#forName-java.lang.String-)
-* [java.net.URLStreamHandlerFactory#createURLStreamHandler(String)](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) (Returns different singleton objects, depending on a protocol)
-* [java.util.EnumSet#of()](https://docs.oracle.com/javase/8/docs/api/java/util/EnumSet.html#of(E))
-* [javax.xml.bind.JAXBContext#createMarshaller()](https://docs.oracle.com/javase/8/docs/api/javax/xml/bind/JAXBContext.html#createMarshaller--) and other similar methods.
 
-## 相关模式
+## 几种工厂模式的区别
 
-* [Factory Method](https://java-design-patterns.com/patterns/factory-method/)
-* [Factory Kit](https://java-design-patterns.com/patterns/factory-kit/)
-* [Abstract Factory](https://java-design-patterns.com/patterns/abstract-factory/)
+- 简单工厂：不能算是真正意义上的设计模式，属于一种封装思想，但可以将客户程序从具体类解耦。
+- 工厂方法：使用继承，把对象的创建委托给子类，由子类来实现创建方法，可以看作是抽象工厂模式中只有单一产品的情况。
+- 抽象工厂：适用于多组合产品的场景，提供接口用于创建相关或依赖对象的家族，而不需要明确指定具体类。
 
+工厂模式可以帮助我们针对抽象/接口编程，而不是针对具体类编程，在不同的场景下按具体情况来使用。
