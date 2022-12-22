@@ -39,7 +39,7 @@ class LHan {
  * 双检锁
  */
 class DoubleCheck {
-    private static DoubleCheck check;
+    private static volatile DoubleCheck check;
 
     private DoubleCheck() {
     }
