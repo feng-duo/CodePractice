@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+
+xxl:
+  job:
+    admin:
+      addresses: http://124.71.59.92:8000/xxl-job-admin
+    executor:
+      app-name: my-xxl-job
+      port: 9999
+    access-token: 123456
