@@ -7,6 +7,10 @@ xxl:
     admin:
       addresses: http://124.71.59.92:8000/xxl-job-admin
     executor:
+      address:
       app-name: my-xxl-job
+      ip:
       port: 9999
-    access-token: 123456
+      log-path:
+      log-retention-days:
+    access-token: default_token

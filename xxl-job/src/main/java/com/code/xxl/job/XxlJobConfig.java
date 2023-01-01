@@ -33,13 +33,13 @@ public class XxlJobConfig {
     private String ip;
 
     @Value("${xxl.job.executor.port}")
-    private int port;
+    private Integer port;
 
     @Value("${xxl.job.executor.log-path}")
     private String logPath;
 
     @Value("${xxl.job.executor.log-retention-days}")
-    private int logRetentionDays;
+    private Integer logRetentionDays;
 
 
     @Bean
@@ -52,8 +52,6 @@ public class XxlJobConfig {
         xxlJobSpringExecutor.setIp(ip);
         xxlJobSpringExecutor.setPort(port);
         xxlJobSpringExecutor.setAccessToken(accessToken);
-        xxlJobSpringExecutor.setLogPath(logPath);
-        xxlJobSpringExecutor.setLogRetentionDays(logRetentionDays);
 
         return xxlJobSpringExecutor;
     }
