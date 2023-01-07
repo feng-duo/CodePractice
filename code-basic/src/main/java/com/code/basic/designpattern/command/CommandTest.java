@@ -13,8 +13,13 @@ public class CommandTest {
         RemoteController remoteController = new RemoteController();
         Light light = new Light();
         remoteController.setCommand(new LightOnCommand(light));
-        remoteController.pressButton();
+        remoteController.pressOnButton();
+        remoteController.pressOffButton();
+
+        System.out.println("---------------------");
+
         remoteController.setCommand(new LightOffCommand(light));
-        remoteController.pressButton();
+        remoteController.pressOnButton();
+        remoteController.pressOffButton();
     }
 }
