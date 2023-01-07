@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+
+xxl:
+  job:
+    admin:
+      addresses: http://127.0.0.1:8000/xxl-job-admin
+    executor:
+      address:
+      app-name: my-xxl-job
+      ip:
+      port: 9999
+      log-path:
+      log-retention-days:
+    access-token: default_token
