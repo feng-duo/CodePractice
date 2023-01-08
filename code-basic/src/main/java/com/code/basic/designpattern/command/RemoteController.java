@@ -11,7 +11,17 @@ public class RemoteController {
 
     private Command command;
 
-    public void pressButton(){
+    /**
+     * 执行命令
+     */
+    public void pressOnButton(){
         command.execute();
+    }
+
+    /**
+     * 撤销命令
+     */
+    public void pressOffButton(){
+        command.undo();
     }
 }
