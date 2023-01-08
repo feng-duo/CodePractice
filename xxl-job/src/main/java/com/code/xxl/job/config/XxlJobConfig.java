@@ -1,6 +1,7 @@
-package com.code.xxl.job;
+package com.code.xxl.job.config;
 
 import com.xxl.job.core.executor.impl.XxlJobSpringExecutor;
+import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
  * @date 2022/12/30 00:14
  */
 @Configuration
+@Getter
 public class XxlJobConfig {
 
     private final Logger logger = LoggerFactory.getLogger(XxlJobConfig.class);
