@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--scan/scanPeriod：可定期扫描配置文件的更改，并在更改时自动应用。默认每分钟一次-->
+<configuration scan="true" scanPeriod="60 seconds">
+    <!-- spring-boot的路径下面有一些配置文件，默认的情况下会使用base.xml，它把日志输出到控制台和文件之中 -->
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <!-- Step 1：通过springProperty标签直接读取application.yml中的配置-->
+    <!--使用该配置需将配置文件重命名为logback-spring.xml-->
+    <!--SpringBoot配置文件的加载顺序:logback.xml—>application.properties—>logback-spring.xml.-->
+    <springProperty name="APP_NAME" scope="context" source="spring.application.name"/>
+    <springProperty name="APP_ENV" scope="context" source="spring.profiles.active"/>
+
+    <!-- Step 2：定义变量 -->
+    <!-- 定义日志输出路径 -->
+    <property name="LOG_PATH" value="./logs/${APP_NAME}"/>
+    <!-- 声明日志输出格式 -->
+    <property name="LOG_PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%logger{36}]: %msg%n"/>
+    <!-- 声明单个日志文件的最大值 -->
+    <property name="MAX_FILE_SIZE" value="100MB"/>
+    <!-- 声明日志保留的最大周期,单位：天 -->
+    <property name="MAX_HISTORY" value="30"/>
+    <!-- 声明日志总大小容量 -->
+    <property name="TOTAL_SIZE_CAP" value="5GB"/>
+
+
+    <!-- Step 3：定义日志规则 -->
+    <!-- 3.1：控制台 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 3.2：业务日志 -->
+    <appender name="BIZ" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}-biz-${APP_ENV}.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+        <!-- 设置滚动策略 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/bak/${APP_NAME}-biz-${APP_ENV}-%d{yyyy-MM-dd}-%i.log.gz</fileNamePattern>
+            <maxFileSize>${MAX_FILE_SIZE}</maxFileSize>
+            <maxHistory>${MAX_HISTORY}</maxHistory>
+            <totalSizeCap>${TOTAL_SIZE_CAP}</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Step 4：定义自定义日志和第三方日志控制 -->
+    <logger name="org.springframework" level="WARN" additivity="true"/>
+    <logger name="org.springframework.boot.autoconfigure.logging" level="WARN" additivity="true"/>
+
+    <!-- Step 5：日志输出 -->
+    <logger name="com.code.basic" level="INFO" additivity="false">
+        <appender-ref ref="BIZ"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+<!--        <appender-ref ref="BIZ"/>-->
+    </root>
+</configuration>
