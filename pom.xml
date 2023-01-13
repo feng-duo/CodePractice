@@ -41,6 +41,7 @@
         <module>code-rocketmq</module>
         <module>canal</module>
         <module>xxl-job</module>
+        <module>code-log</module>
     </modules>
 
     <dependencyManagement>

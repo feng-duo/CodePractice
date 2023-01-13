@@ -1,4 +1,4 @@
-package com.code.basic.log;
+package com.code.log.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

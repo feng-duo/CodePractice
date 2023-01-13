@@ -1,10 +1,2 @@
 server:
   port: 9001
-
-spring:
-  application:
-    name: @project.name@
-
-
-logging:
-  config: classpath:logback-spring.xml
