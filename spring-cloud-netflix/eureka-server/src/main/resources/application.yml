@@ -1,0 +1,15 @@
+server:
+  port: 18762
+
+eureka:
+  instance:
+    #eureka server instance ID
+    hostname: eureka-18762
+  client:
+    #false表示不向注册中心注册自己。
+    register-with-eureka: false
+    #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+    fetch-registry: false
+    service-url:
+      #单机版服务注册中心
+      defaultZone: http://eureka-18761:${server.port}/eureka/
