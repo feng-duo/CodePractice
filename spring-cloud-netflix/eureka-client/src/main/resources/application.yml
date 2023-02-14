@@ -8,8 +8,8 @@ eureka:
   client:
     register-with-eureka: true
     serviceUrl:
-      #?????????server?????????eureka?????
-      defaultZone: http://localhost:18761/eureka/,http://localhost:18762/eureka/
+      # eureka-server地址
+      defaultZone: http://localhost:18761/eureka/,http://localhost:18762/eureka/,http://localhost:18763/eureka/
 spring:
   application:
     name: eureka-client-producer

@@ -46,6 +46,7 @@
         <module>canal</module>
         <module>xxl-job</module>
         <module>code-log</module>
+        <module>spring-cloud-netflix</module>
     </modules>
 
     <dependencyManagement>
@@ -66,14 +67,12 @@
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis-spring.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
                 <scope>provided</scope>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
