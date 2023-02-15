@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ClientDemoController {
 
 
-    @GetMapping("method")
+    @GetMapping("/method")
     public String method(){
         return "request success.";
     }

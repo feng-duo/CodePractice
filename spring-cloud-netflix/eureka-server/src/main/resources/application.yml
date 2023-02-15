@@ -2,7 +2,7 @@ spring:
   application:
     name: eureka-server-instance
   profiles:
-    active: eureka-18763
+    active: eureka-18761
 
 
 ---
@@ -10,7 +10,9 @@ server:
   port: 18761
 
 spring:
-  profiles: eureka-18761
+  config:
+    activate:
+      on-profile: eureka-18761
 
 eureka:
   instance:
@@ -30,7 +32,9 @@ server:
   port: 18762
 
 spring:
-  profiles: eureka-18762
+  config:
+    activate:
+      on-profile: eureka-18762
 
 eureka:
   instance:
@@ -50,7 +54,9 @@ server:
   port: 18763
 
 spring:
-  profiles: eureka-18763
+  config:
+    activate:
+      on-profile: eureka-18763
 
 eureka:
   instance:

@@ -27,6 +27,9 @@
 
         <!--   mirco service  -->
         <spring-cloud.version>2020.0.6</spring-cloud.version>
+        <eureka-server.version>3.0.6</eureka-server.version>
+        <eureka-client.version>3.0.6</eureka-client.version>
+        <ribbon.verion>2.2.10.RELEASE</ribbon.verion>
 
         <!-- 3rd -->
         <easyexcel.version>3.0.5</easyexcel.version>
@@ -80,6 +83,22 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+                <version>${eureka-server.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>${eureka-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+                <version>${ribbon.verion}</version>
+            </dependency>
+
 
 
             <!-- 3rd -->
