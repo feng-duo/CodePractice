@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: zuul-server
+server:
+  port: 9200
+
+eureka:
+  instance:
+    #instance ID
+    hostname: zuul-server
+  client:
+    service-url:
+      #单机版服务注册中心
+      defaultZone: http://eureka-18761:18761/eureka/,http://eureka-18762:18762/eureka/,http://eureka-18763:18763/eureka/
+
+  # 自定义请求路径转发到指定的服务消费者上，再由服务消费者调用服务模块
+  # routes：下的内容通过自定义完成，三个关键点
+  # 第一个producer:是请求路径前缀定义，此命名常用与path中定义的请求路径相同
+  # 第二个path：是路径的完整定义，通常在路径前缀后面通过/**代表所有
+  # 第三个serviceId: 是服务消费ID，通过定义不同的ID，转发到不同的服务消费上，再由服务消费调用服务模块
+  # routes：下面可以定义无数个前缀请求路径
+zuul:
+  routes:
+    producer:
+      path: /producer/**
+      serviceId: EUREKA-CLIENT-PRODUCER
+
+EUREKA-CLIENT-PRODUCER:
+  ribbon:
+    listOfServers: http://localhost:9000/
+

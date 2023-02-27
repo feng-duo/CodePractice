@@ -20,7 +20,7 @@ public class RibbonController {
 
     //面向微服务编程，即通过微服务的名称来获取调用地址
     //使用注册到 Spring Cloud Eureka 服务注册中心中的服务，即 application.name
-    private static final String REST_URL_PROVIDER_PREFIX = "http://eureka-client-producer";
+    private static final String REST_URL_PROVIDER_PREFIX = "http://EUREKA-CLIENT-PRODUCER";
 
     @RequestMapping(value = "/check",method = RequestMethod.GET)
     public String check() {

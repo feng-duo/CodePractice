@@ -2,7 +2,7 @@ spring:
   application:
     name: eureka-server-instance
   profiles:
-    active: eureka-18761
+    active: eureka-18763
 
 
 ---
