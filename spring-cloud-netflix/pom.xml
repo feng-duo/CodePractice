@@ -18,6 +18,7 @@
         <module>eureka-client</module>
         <module>ribbon-service</module>
         <module>zuul-service</module>
+        <module>gateway-service</module>
     </modules>
 
 </project>
