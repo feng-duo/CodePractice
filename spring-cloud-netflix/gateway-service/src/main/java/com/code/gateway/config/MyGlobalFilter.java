@@ -9,7 +9,7 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 /**
- * 全局过滤器
+ * 自定义全局过滤器
  *
  * @author FengDuo
  * @date 2023/2/28 17:05
@@ -19,10 +19,17 @@ import reactor.core.publisher.Mono;
 public class MyGlobalFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        log.info("filter start.");
-        return chain.filter(exchange).then(Mono.fromRunnable(() -> log.info("filter end.")));
+        log.info("filter pre.");
+        return chain.filter(exchange).then(Mono.fromRunnable(() -> log.info("filter post.")));
     }
 
+    /**
+     * 过滤器优先级，越小优先级越高，也可通过注解实现
+     *
+     * @return priority
+     * @see org.springframework.core.annotation.Order
+     * 范围：{@link Integer#MIN_VALUE} 至 {@link Integer#MAX_VALUE}
+     */
     @Override
     public int getOrder() {
         return 0;
