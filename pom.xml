@@ -32,6 +32,8 @@
         <netflix.verion>2.2.10.RELEASE</netflix.verion>
 
         <!-- 3rd -->
+        <mybatis-plus.verison>3.5.3</mybatis-plus.verison>
+        <mysql-connector-java.version>8.0.26</mysql-connector-java.version>
         <easyexcel.version>3.0.5</easyexcel.version>
         <rocketmq.version>4.9.1</rocketmq.version>
         <junit.version>4.13.2</junit.version>
@@ -101,6 +103,16 @@
 
 
             <!-- 3rd -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.verison}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
