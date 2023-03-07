@@ -32,7 +32,7 @@ public class MyGlobalFilter implements GlobalFilter, Ordered {
      */
     @Override
     public int getOrder() {
-        return 0;
+        return 1;
     }
 /*    @Bean
     @Order(-1)
