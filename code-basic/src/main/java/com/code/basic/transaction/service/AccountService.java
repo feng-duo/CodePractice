@@ -11,4 +11,6 @@ import com.code.basic.transaction.domain.AccountDomain;
 public interface AccountService extends IService<AccountDomain> {
 
     String multiOrderTransaction();
+
+    AccountDomain getAccountDomain();
 }
