@@ -1,12 +1,46 @@
 package com.code.basic.thread;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author FengDuo
  * @date 2023/03/16 22:10
  */
+@Slf4j
 public class ThreadLocalDemo {
 
     public static void main(String[] args) {
-//        http://www.coketea.com/2017/12/18/li-jie-threadlocal-yi-ji-qi-zai-dai-ma-diao-shi-zhong-peng-dao-de-wen-ti-zong-jie/
+        Person person = new Person("jack", 1);
+        log.info("init:{}", person);
+        new Thread(() -> {
+            ThreadLocal<Person> threadLocal = new ThreadLocal<>();
+            threadLocal.set(new Person(person.getName(), person.getSex()));
+            log.info("threadID:{}, before update:{}", Thread.currentThread().getId(), threadLocal.get());
+            threadLocal.get().setName("john");
+            log.info("threadID:{}, after update:{}", Thread.currentThread().getId(), threadLocal.get());
+            threadLocal.remove();
+        }).start();
+
+        new Thread(() -> {
+            ThreadLocal<Person> threadLocal = new ThreadLocal<>();
+            threadLocal.set(new Person(person.getName(), person.getSex()));
+            log.info("threadID:{}, before update:{}", Thread.currentThread().getId(), threadLocal.get());
+            threadLocal.get().setName("windy");
+            log.info("threadID:{}, after update:{}", Thread.currentThread().getId(), threadLocal.get());
+            threadLocal.remove();
+        }).start();
+        log.info("end:{}", person);
+    }
+
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    static class Person {
+        private String name;
+        private Integer sex;
     }
 }
