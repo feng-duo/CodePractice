@@ -1,9 +1,11 @@
-package com.code.basic.thread;
+package com.code.basic.concurrent;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author FengDuo
@@ -13,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ThreadLocalDemo {
 
     public static void main(String[] args) {
+        AtomicInteger atomicInteger = new AtomicInteger(1);
         Person person = new Person("jack", 1);
         log.info("init:{}", person);
         new Thread(() -> {
