@@ -6,7 +6,6 @@ import com.code.basic.transaction.repository.AccountMapper;
 import com.code.basic.transaction.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionDefinition;
@@ -31,14 +30,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class AccountServiceImpl extends ServiceImpl<AccountMapper, AccountDomain> implements AccountService {
 
-    @Autowired
-    private  AccountMapper accountMapper;
-    @Autowired
-    private  AccountService accountService;
-    @Autowired
-    private DataSourceTransactionManager dataSourceTransactionManager;
+    private final AccountMapper accountMapper;
+    private final DataSourceTransactionManager dataSourceTransactionManager;
 
     List<TransactionStatus> transactionStatusList = Collections.synchronizedList(new ArrayList<>());
 
