@@ -51,6 +51,4 @@ public class LogAspect {
         log.info("aspect after");
     }
 
-
-
 }
