@@ -23,8 +23,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot-version>2.5.12</spring-boot-version>
+        <mybatis-spring.version>2.2.0</mybatis-spring.version>
+
+        <!--   mirco service  -->
+        <spring-cloud.version>2020.0.6</spring-cloud.version>
+        <eureka-server.version>3.0.6</eureka-server.version>
+        <eureka-client.version>3.0.6</eureka-client.version>
+        <netflix.verion>2.2.10.RELEASE</netflix.verion>
 
         <!-- 3rd -->
+        <mybatis-plus.verison>3.5.3</mybatis-plus.verison>
+        <mysql-connector-java.version>8.0.26</mysql-connector-java.version>
         <easyexcel.version>3.0.5</easyexcel.version>
         <rocketmq.version>4.9.1</rocketmq.version>
         <junit.version>4.13.2</junit.version>
@@ -33,6 +42,7 @@
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <guava.version>31.1-jre</guava.version>
         <xxl-job-core.version>2.3.1</xxl-job-core.version>
+        <okhttp.version>4.10.0</okhttp.version>
     </properties>
 
     <modules>
@@ -40,6 +50,8 @@
         <module>code-rocketmq</module>
         <module>canal</module>
         <module>xxl-job</module>
+        <module>code-log</module>
+        <module>spring-cloud-netflix</module>
     </modules>
 
     <dependencyManagement>
@@ -56,14 +68,51 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
                 <scope>provided</scope>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+                <version>${eureka-server.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>${eureka-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+                <version>${netflix.verion}</version>
+            </dependency>
 
 
             <!-- 3rd -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.verison}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -99,6 +148,11 @@
                 <artifactId>xxl-job-core</artifactId>
                 <version>${xxl-job-core.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>
@@ -117,6 +171,7 @@
                     <include>**/*.yml</include>
                     <include>**/*.xml</include>
                 </includes>
+                <filtering>true</filtering>
             </resource>
         </resources>
         <plugins>

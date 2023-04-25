@@ -1,0 +1,15 @@
+server:
+  port: 9002
+
+eureka:
+  instance:
+    hostname: eureka-client
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    serviceUrl:
+      # eureka-server地址
+      defaultZone: http://localhost:18761/eureka/,http://localhost:18762/eureka/,http://localhost:18763/eureka/
+spring:
+  application:
+    name: eureka-client-producer

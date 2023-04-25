@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: ribbon-server
+server:
+  port: 9100
+
+eureka:
+  instance:
+    #instance ID
+    hostname: ribbon-server
+  client:
+    service-url:
+      #单机版服务注册中心
+      defaultZone: http://eureka-18761:18761/eureka/,http://eureka-18762:18762/eureka/,http://eureka-18763:18763/eureka/
+
