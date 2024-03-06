@@ -1,4 +1,4 @@
-package com.code.basic.sort;
+package com.code.basic.algorithm.node;
 
 
 /**

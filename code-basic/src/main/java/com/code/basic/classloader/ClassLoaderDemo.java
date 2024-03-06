@@ -8,7 +8,6 @@ import java.lang.reflect.Method;
  */
 public class ClassLoaderDemo {
 
-
     public static void main(String[] args) throws Exception {
         // 实例化自定义类加载器
         MyClassLoader myClassLoader = new MyClassLoader();
