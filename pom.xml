@@ -52,6 +52,7 @@
         <module>xxl-job</module>
         <module>code-log</module>
         <module>spring-cloud-netflix</module>
+        <module>code-docker</module>
     </modules>
 
     <dependencyManagement>
